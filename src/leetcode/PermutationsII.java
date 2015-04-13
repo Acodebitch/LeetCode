@@ -3,7 +3,7 @@ import java.util.*;
 public class PermutationsII {
 	   List<List<Integer>> theList;
 	   List<Integer> list;
-	   public List<List<Integer>> permute(int[] num) {
+	   public List<List<Integer>>  permuteUnique(int[] num) {
 	           theList = new ArrayList<List<Integer>>();
 	           list = new ArrayList<Integer>();
 	           Arrays.sort(num);
@@ -20,7 +20,7 @@ public class PermutationsII {
 	   {
 	   	if(i==num.length)
 	   	{
-	   		if(!theList.contains(new ArrayList<Integer>(list)))
+	   		//if(!theList.contains(new ArrayList<Integer>(list)))
 	   		theList.add(new ArrayList<Integer>(list));
 	   		return;
 	   	}
@@ -28,6 +28,8 @@ public class PermutationsII {
 	   	{
 	   		for(int j=i;j<num.length;j++)
 	   		{
+	   			if(j!=i&&num[i]==num[j])
+ 				continue;
 	   			list.add(num[j]);
 	   			swap(num,i,j);
 	   			BackTrack(num,i+1);
@@ -39,7 +41,7 @@ public class PermutationsII {
 	   public static void main(String [] args)
 	   {
 		   PermutationsII p = new PermutationsII();
-		   int []num = {1,1,2};
-		   System.out.println(p.permute(num));
+		   int []num = {-1,-1,3,-1};
+		   System.out.println(p.permuteUnique(num));
 	   }
 }

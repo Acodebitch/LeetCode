@@ -1,6 +1,5 @@
 package leetcode;
 import java.util.*;
-import java.util.Map.Entry;
 
 // This is the 4 sum problem under the hash table label
 public class Sum4 {

@@ -54,6 +54,6 @@ public void BackTrack(int i,int n,String s,int k)
 public static void main(String[] args)
 {
 	PermutationSequence ps = new PermutationSequence();
-	System.out.println(ps.getPermutation(9, 278082));
+	System.out.println(ps.getPermutation(8, 8950));
 }
 }
