@@ -1,30 +1,30 @@
 package leetcode;
 import java.util.*;
 public class Anagram {
-public List<String> anagrams(String[] strs) {
-	HashMap<String, String> hm = new HashMap<String,String>();
-	List<String> list = new ArrayList<String>();
-	for(int i=0;i<strs.length;i++)
-	{
-		char [] array = strs[i].toCharArray();
-		Arrays.sort(array);
-		String mine = new String(array);
-		if(hm.containsKey(mine)&&strs[i].length()==hm.get(mine).length())
+	public List<String> anagrams(String[] strs) {
+		HashMap<String, String> hm = new HashMap<String,String>();
+		List<String> list = new ArrayList<String>();
+		for(String s:strs)
 		{
-			if(!list.contains(hm.get(mine)))
+			char [] array = s.toCharArray();
+			Arrays.sort(array);
+			String mine = new String(array);
+			if(hm.containsKey(mine))
 			{
-				list.add(hm.get(mine));
+				if(!list.contains(hm.get(mine)))
+				{
+					list.add(hm.get(mine));
+				}
+				list.add(s);
 			}
-			list.add(strs[i]);
+			else
+			{
+				hm.put(mine, s);
+				
+			}
 		}
-		else
-		{
-			hm.put(mine, strs[i]);
-			
+		return list;
 		}
-	}
-	return list;
-	}
 public static void main(String [] args)
 {
 	String[] s={"abc","cba","bac"};
